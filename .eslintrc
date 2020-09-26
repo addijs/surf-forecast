@@ -8,7 +8,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
-  "global": {
+  "env": {
     "browser": true,
     "amd": true,
     "node": true
