@@ -10,6 +10,6 @@ module.exports = {
   preset: 'ts-jest',
   moduleNameMapper: {
     '@src/(.*)': '<rootDir>/src/$1',
-    '@test/(.*)': '<rootDir>/test/$1',
+    '@tests/(.*)': '<rootDir>/__tests__/$1',
   },
 };
