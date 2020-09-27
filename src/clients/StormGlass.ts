@@ -68,7 +68,7 @@ export class StormGlass {
           this.stormGlassApiParams
         }&source=${
           this.stormGlassApiSource
-        }&end=654654651&lat=${lat}&lng=${lng}`,
+        }&end=1601506596&lat=${lat}&lng=${lng}`,
         {
           headers: {
             Authorization: stormGlassResourceConfig.get('apiToken'),
