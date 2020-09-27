@@ -1,10 +1,15 @@
-import { ServerSetup } from '@src/server';
+import { AppSetup } from '@src/app';
 import supertest from 'supertest';
 
-const setup = new ServerSetup();
+let setup: AppSetup;
 
 beforeAll(async () => {
+  setup = new AppSetup();
   await setup.init();
 
   global.testRequest = supertest(setup.getApp());
+});
+
+afterAll(async () => {
+  await setup.closeApp();
 });

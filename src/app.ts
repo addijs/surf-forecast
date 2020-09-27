@@ -2,8 +2,9 @@ import './utils/module-alias';
 import { Server } from '@overnightjs/core';
 import express, { Application } from 'express';
 import { ForecastController } from './controllers/ForecastController';
+import * as db from '@src/database';
 
-export class ServerSetup extends Server {
+export class AppSetup extends Server {
   constructor(private port = 3333) {
     super();
   }
@@ -15,6 +16,15 @@ export class ServerSetup extends Server {
   public async init(): Promise<void> {
     this.initializeMiddlewares();
     this.initializeControllers();
+    await this.databaseSetup();
+  }
+
+  public async closeApp(): Promise<void> {
+    await db.close();
+  }
+
+  private async databaseSetup(): Promise<void> {
+    await db.connect();
   }
 
   private initializeMiddlewares(): void {
