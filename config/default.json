@@ -1,9 +1,12 @@
 {
   "App": {
+    "database": {
+      "mongoUrl": "mongodb+srv://surf-forecast-user:SurF-f0r3c4st-p4SSw0rd@aj-cluster.ttlq6.mongodb.net/surf-forecast-db?retryWrites=true&w=majority"
+    },
     "resources": {
       "StormGlass": {
         "apiUrl": "https://api.stormglass.io/v2",
-        "apiToken": "606b42a0-ff92-11ea-aa62-0242ac130002-606b4354-ff92-11ea-aa62-0242ac130002"
+        "apiToken": "api-key"
       }
     }
   }
