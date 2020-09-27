@@ -20,6 +20,12 @@ export class AppSetup extends Server {
     await this.databaseSetup();
   }
 
+  public startApp(): void {
+    this.app.listen(this.port, () => {
+      console.info(`Server listening on port ${this.port}`);
+    });
+  }
+
   public async closeApp(): Promise<void> {
     await db.close();
   }
