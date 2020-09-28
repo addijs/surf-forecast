@@ -1,7 +1,7 @@
 import { Beach } from '@src/models/beach';
 
 describe('Beaches functional tests', () => {
-  beforeAll(async () => {
+  beforeEach(async () => {
     await Beach.deleteMany({});
   });
 
