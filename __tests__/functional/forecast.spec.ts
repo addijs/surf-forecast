@@ -3,7 +3,7 @@ import apiForecastResponse1BeachFixture from '@tests/fixtures/api_forecast_respo
 import { Beach, BeachPosition } from '@src/models/beach';
 import nock from 'nock';
 import { User } from '@src/models/user';
-import { AuthService } from '@src/services/auth';
+import AuthService from '@src/services/auth';
 
 describe('Beach foreacast functional tests', () => {
   const defaultUser = {

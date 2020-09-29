@@ -1,8 +1,8 @@
 import { Controller, Post } from '@overnightjs/core';
 import { User } from '@src/models/user';
-import { AuthService } from '@src/services/auth';
 import { Request, Response } from 'express';
 import { BaseController } from './BaseController';
+import AuthService from '@src/services/auth';
 
 @Controller('users')
 export class UserController extends BaseController {
@@ -27,9 +27,9 @@ export class UserController extends BaseController {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(401).send({
+      return this.sendErrorResponse(res, {
         code: 401,
-        error: 'User not found',
+        message: 'User not found',
       });
     }
 
@@ -39,9 +39,9 @@ export class UserController extends BaseController {
     );
 
     if (!isValidPassword) {
-      return res.status(401).send({
+      return this.sendErrorResponse(res, {
         code: 401,
-        error: 'Password does not match',
+        message: 'Password does not match',
       });
     }
 

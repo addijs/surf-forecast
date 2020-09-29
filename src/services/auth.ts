@@ -7,7 +7,7 @@ export interface DecodedUser extends Omit<User, '_id'> {
   id: string;
 }
 
-export class AuthService {
+export default class AuthService {
   public static async hashPassword(
     password: string,
     salt = 10
