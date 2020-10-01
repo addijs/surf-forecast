@@ -63,12 +63,14 @@ export class StormGlass {
 
   public async fetchPoints(lat: number, lng: number): Promise<ForecastPoint[]> {
     try {
+      const endTimestamp = this.setTimestampForFutureDay(1);
+
       const response = await this.request.get<StormGlassForecastResponse>(
         `${stormGlassResourceConfig.get('apiUrl')}/weather/point?params=${
           this.stormGlassApiParams
         }&source=${
           this.stormGlassApiSource
-        }&end=1601506596&lat=${lat}&lng=${lng}`,
+        }&end=${endTimestamp}&lat=${lat}&lng=${lng}`,
         {
           headers: {
             Authorization: stormGlassResourceConfig.get('apiToken'),
@@ -117,5 +119,10 @@ export class StormGlass {
       point.windDirection?.[this.stormGlassApiSource] &&
       point.windSpeed?.[this.stormGlassApiSource]
     );
+  }
+
+  private setTimestampForFutureDay(days: number): number {
+    const currentDay = new Date().getUTCDate();
+    return Math.round(new Date().setDate(currentDay + days) / 1000);
   }
 }
