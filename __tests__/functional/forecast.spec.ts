@@ -39,7 +39,7 @@ describe('Beach foreacast functional tests', () => {
       .get('/v2/weather/point')
       .query({
         params: /(.*)/,
-        end: '1601506596',
+        end: /(.*)/,
         source: 'noaa',
         lat: '-33.792726',
         lng: '151.289824',
