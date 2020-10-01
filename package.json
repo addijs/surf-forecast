@@ -8,7 +8,7 @@
     "build": "tsc",
     "start": "node ./dist/src/server.js",
     "dev": "dotenv -e .env -- tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts --ignore ./__tests__ | pino-pretty -c",
-    "test": "yarn test:unit && yarn test:functional",
+    "test": "yarn lint && yarn style:check && yarn test:unit && yarn test:functional",
     "test:unit": "jest",
     "test:functional": "jest --projects ./__tests__ --runInBand",
     "lint": "eslint ./src ./__tests__ --ext .ts",
